@@ -19,8 +19,29 @@ class AlumnoController {
 		var_dump($_POST['username']);
 	}
 
+	//Añadir una nueva asignatura 
 	private static function addAsignatura( $alumno, $asignatura ){
 		// AQUI TODA LA MAGIA
+	}
+
+	//Darme de baja en una asignatura 
+	private static function void bajaAsignatura( $alumno , $asignatura){
+		// LA MAGIA VA AQUI
+	}
+
+	//Muestra el horario de el alumno
+	private static function verHorario ($alumno) {
+		// LA MAGIA VA AQUI
+	}
+
+	//Muestra las notas de el alumno 
+	private static function verNotas($alumno){
+		//  LA MAGIA VA AQUI
+	} 
+
+	//Enviar un msj a alguien 
+	private static function sendMessage($alumno , $destinario){
+		// LA MAGIA VA AQUI 
 	}
 
 }
