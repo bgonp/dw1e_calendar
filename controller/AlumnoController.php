@@ -11,11 +11,24 @@ class AlumnoController {
 					//$asignatura = new Asignatura( $_GET['asignatura_id'] );
 					addAsignatura( $alumno, $asignatura );
 					break;
+				case 'baja_asignatura':
+					baja_asignatura($alumno, $asignatura);
+					break;
+				case 'verHorario':
+					verHorario($alumno);
+					break;
+				case 'verNotas':
+					verHorario($alumno);
+					break;
+				case 'sendMessage':
+					 sendMessage($alumno , $destinario);
+					break;
 			}
 		} else {
 			$msg = "aqui tu mensaje";
 			//View::showError( $msg );
 		}
+		
 		var_dump($_POST['username']);
 	}
 
