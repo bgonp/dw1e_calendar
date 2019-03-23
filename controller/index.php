@@ -1,9 +1,20 @@
-<!DOCTYPE html>
+<?php
+
+	//require_once "../login/Auth.php";
+	require_once "AlumnoController.php";
+
+	//Auth::autenticar();
+	AlumnoController::procesar();
+
+?><!DOCTYPE html>
 <html>
 <head>
 	<title>Controller test</title>
 </head>
 <body>
-	Gero no se te oye.
+	<form method="post" action="">
+		<input type="text" name="username">
+		<input type="submit" name="Enviar">
+	</form>
 </body>
 </html>
