@@ -1,10 +1,12 @@
 <?php
 
 	//require_once "../login/Auth.php";
-	require_once "AlumnoController.php";
+	//require_once "AlumnoController.php";
 
 	//Auth::autenticar();
-	AlumnoController::procesar();
+	//AlumnoController::procesar();
+	
+	require_once "EventoController.php";
 
 ?><!DOCTYPE html>
 <html>
