@@ -38,7 +38,7 @@ class AlumnoController {
 	}
 
 	//Darme de baja en una asignatura 
-	private static function void bajaAsignatura( $alumno , $asignatura){
+	private static function  bajaAsignatura( $alumno , $asignatura){
 		// LA MAGIA VA AQUI
 	}
 
