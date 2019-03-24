@@ -6,13 +6,16 @@
 	class EventoController
 	{	
 		
-		static function prosesar(){
+		static function procesar(){
 			$action = $_POST['action'];
+
 
 			switch ($action) {
 				case 'getEvento':
 					$eventos = getEventos($_POST['fecha_evento']);
 					break;
+				case 'new_evento':
+					this->setNewEvento($_POST['$fecha'] , $_POST['$tipo'] , $_POST['$asignatura'] , $_POST['$observaciones']);
 			}
 		}
 
@@ -36,7 +39,7 @@
 		/**
 		*Devuelve un objeto Evento a modelo para que lo añada
 		*/
-		private static function setNewEvento($fecha , $tipo , $asignatura , $observaciones){
+	    static function setNewEvento($fecha , $tipo , $asignatura , $observaciones){
 
 			$evento = new Evento($fecha , $tipo , $asignatura , $observaciones);
 
@@ -49,7 +52,7 @@
 		/**
 		* Modifica un evento y lo devuelve a modelo para que lo cambie
 		*/
-		private static function modificarEvento($evento){
+		static function modificarEvento($evento){
 
 		}
 
@@ -58,7 +61,7 @@
 		/**
 		* Manda a modelo a eliminar un Evento
 		*/
-		private static function deleteEvento($evento){
+		static function deleteEvento($evento){
 
 		}
 	}
