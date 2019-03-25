@@ -14,6 +14,7 @@
 	<title>Controller test</title>
 </head>
 <body>
+    <h1>Esto son prueba de los controladores no rompais nada</h1>
 	<form method="post" action="">
 		<input type="text" name="username">
 		<input type="submit" name="Enviar">
