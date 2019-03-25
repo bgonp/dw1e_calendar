@@ -46,8 +46,8 @@ class AlumnoController implements CRUDController {
         $event::setNewEvento($fecha, $tipo, $asignatura, $observaciones);
     }
 
-    //Añadir una nueva asignatura 
-    private static function addAsignatura($alumno, $asignatura) {
+    //Darse de alta en una nueva asignatura 
+    private static function altaAsignatura($alumno, $asignatura) {
         // AQUI TODA LA MAGIA
     }
 
