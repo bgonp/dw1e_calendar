@@ -1,6 +1,6 @@
 <?php
 
-require_once 'EventoController';
+require_once '../config/autoload.php';
 
 class AlumnoController implements CRUDController {
 

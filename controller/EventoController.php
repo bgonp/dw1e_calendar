@@ -1,7 +1,6 @@
 <?php
 
-require_once "../v0.1/Evento.php";
-require_once "../v0.1/Eventos.php";
+require_once '../config/autoload.php';
 
 class EventoController implements CRUDController {
 

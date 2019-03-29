@@ -1,10 +1,6 @@
 <?php
 
-require_once "../evento/Evento.php";
-require_once "../evento/Eventos.php";
-require_once "../alumno/Alumno.php";
-require_once "../asignatura/Asignatura.php";
-require_once "../profesor/profesor.php";
+require_once '../config/autoload.php';
 
 class AsignaturaController implements CRUDController {
 

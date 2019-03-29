@@ -1,8 +1,6 @@
 <?php
 
-require_once '../v0.1/Profesor.php';
-require_once 'EventoController';
-require_once '../v0.1/Evento.php';
+require_once '../config/autoload.php';
 
 class ProfesorController implements CRUDController {
 
@@ -17,8 +15,21 @@ class ProfesorController implements CRUDController {
         $profesor = new Profesor($nombre, $apellido, $email);
 
         switch (action) {
-            case 'value':
-                # code...
+            case 'crearProfesor':
+                self::create();
+                
+                break;
+            case 'editProfesor':
+                self::edit();
+                break;
+            case 'getProfesor':
+                self::get();
+                break;
+            case 'getSingleProfesor':
+                self::getSingle();
+                break;
+            case 'removeProfesor':
+                self::remove();
                 break;
         }
     }
