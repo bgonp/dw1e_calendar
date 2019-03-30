@@ -2,7 +2,7 @@
 
 require_once '../config/autoload.php';
 
-class AlumnoController implements CRUDController {
+class AlumnoController implements iController {
 
     
     public static function createPage() {
