@@ -7,26 +7,27 @@ class ProfesorController implements iController {
     /*
     * Guarda un nuevo profesor.
     * 
-    * Primero, crea un objeto Profesor vacío.
-    * Después, llama a View para mostrar la página en la que el usuario
-    introducirá los datos del nuevo profesor.
-    * Con la info guardada en un array, asigna cada campo a una propiedad del
-    objeto Profesor.
-    * Una vez almacenada toda la información en el objeto, se llama al método
-    para guardarlo en la base de datos.
+    * Primero, llama a View para mostrar el formulario vacío, en el que el
+    usuario introducirá los datos del nuevo profesor.
+    * Después, crea un objeto Profesor, y guarda en sus propiedades la
+    información pasada mediante $_POST.
+    * Llama al método store() del modelo, para guardar los datos del profesor,
+    y para terminar muestra la lista de todos los profesores guardados.
     */
     public static function createPage() {
+        $params=null;
+        View::profesorCreatePage($params);
+
         $profesor = new Profesor();
 
-        $params = View::profesorCreatePage();
-
-        $profesor->nombre = $params['nombre'];
-        $profesor->apellidos = $params['apellidos'];
-        $profesor->email = $params['email'];
-        $profesor->num_asignaturas['num_asignaturas'];
+        $profesor->nombre = $_POST['nombre'];
+        $profesor->apellidos = $_POST['apellidos'];
+        $profesor->email = $_POST['email'];
+        $profesor->num_asignaturas = $_POST['num_asignaturas'];
 
         $profesor->store();
 
+        self::listPage();
     }
 
     public static function deletePage() {
