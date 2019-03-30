@@ -2,55 +2,26 @@
 
 require_once '../config/autoload.php';
 
-class EventoController implements CRUDController {
+class EventoController implements iController {
 
-    static function prosesar() {
-        $action = $_POST['action'];
-
-
-        switch ($action) {
-            case 'getEvento':
-                $eventos = getEventos($_POST['fecha_evento']);
-                break;
-            case 'new_evento':
-                añadirEvento($_POST['$fecha'], $_POST['$tipo'], $_POST['$asignatura'], $_POST['$observaciones']);
-                break;
-        }
-    }
-
-    /**
-     * Se creara un nuevo evento 
-     * 
-     */
-    public static function create() {
+   
+    public static function createPage() {
         
     }
 
-    /**
-     * Modificas un  evento 
-     */
-    public static function edit() {
+    public static function deletePage() {
         
     }
 
-    /**
-     * Obtienes una lista de todos los  evento 
-     */
-    public static function get() {
+    public static function editPage() {
         
     }
 
-    /**
-     * Obtendra un  evento
-     */
     public static function getSingle() {
         
     }
 
-    /**
-     * Eliminara un alumno
-     */
-    public static function remove() {
+    public static function listPage() {
         
     }
 
