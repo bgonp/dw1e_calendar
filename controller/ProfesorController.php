@@ -4,8 +4,29 @@ require_once '../config/autoload.php';
 
 class ProfesorController implements iController {
 
+    /*
+    * Guarda un nuevo profesor.
+    * 
+    * Primero, crea un objeto Profesor vacío.
+    * Después, llama a View para mostrar la página en la que el usuario
+    introducirá los datos del nuevo profesor.
+    * Con la info guardada en un array, asigna cada campo a una propiedad del
+    objeto Profesor.
+    * Una vez almacenada toda la información en el objeto, se llama al método
+    para guardarlo en la base de datos.
+    */
     public static function createPage() {
-        
+        $profesor = new Profesor();
+
+        $params = View::profesorCreatePage();
+
+        $profesor->nombre = $params['nombre'];
+        $profesor->apellidos = $params['apellidos'];
+        $profesor->email = $params['email'];
+        $profesor->num_asignaturas['num_asignaturas'];
+
+        $profesor->store();
+
     }
 
     public static function deletePage() {
@@ -14,21 +35,6 @@ class ProfesorController implements iController {
 
     public static function editPage() {
         
-    }
-
-    /*
-    * Muestra la página de información de un profesor.
-    * 
-    * Recibe el id del profesor mediante $_POST o $_GET, y lo guarda en $id.
-    * Llama al método ProfesorPage() de View, pasándole $id como parámetro.
-    */
-    public static function getSingle() {
-        if( $_POST['id'] )
-            $id = $_POST['id'];
-        else if( $_GET['id'] )
-            $id = $_GET['id'];
-
-        View::ProfesorPage($id);
     }
 
     /*
@@ -42,7 +48,7 @@ class ProfesorController implements iController {
     */
     public static function listPage() {
         $list = Profesor::get();
-        View::printList($list);
+        View::profesorListPage($list);
     }
 
 }
