@@ -31,7 +31,11 @@ class ProfesorController implements iController {
     }
 
     public static function deletePage() {
-        
+        if($_POST['id']){
+            $profesor = new Profesor($_POST['id']);
+            $profesor->remove();
+            self::listPage();
+        }
     }
 
     /*

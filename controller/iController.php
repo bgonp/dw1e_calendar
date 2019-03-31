@@ -7,10 +7,6 @@ interface CRUDController {
  */
 public static function listPage();
 /**
- * Devolvera un objeto de esa clase
- */
-public static function getSingle();
-/**
  * Eliminara el objeto de esa clase
  */
 public static function deletePage();
