@@ -3,34 +3,36 @@ Auth::validate()
 
 class Profesor {
 
-  var $id;
-  var $nombre;
-  var $apellidos;
-  var $email;
+  $id;
+  $nombre;
+  $apellidos;
+  $email;
 
-  function __construct($id = null){
+  public function __construct($id = null){
     $profesor = new Profesor();
 
   }
 
-  function store(){
-
+  public function store(){
+    // INSERT
   }
 
-  function update(){
-
+  public function update(){
+    // UPDATE
   }
 
-  function remove() {
-
+  public function remove() {
+    // DELETE
   }
 
-  static function get() {
-
+  public static function get() {
+    // SELECT ALL
   }
 
-  static function getSingle() {
-
+  public static function getSingle() {
+    // SELECT ONE
   }
 
 }
+
+?>
