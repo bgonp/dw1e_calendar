@@ -8,7 +8,6 @@ class UserController implements iController {
   }
 
   public static function editPage() {
-    // no tengo claro si aquí hay que editar directamente las propiedades o dentro de la página
     if ($_POST['id']) {
       $user = new User();
       $user->id($_POST['id']);
@@ -30,7 +29,7 @@ class UserController implements iController {
     if ($_POST) {
       $user = new User();
       $user->id($_POST['id']);
-      $user->pass(password_hash($_POST['pass'], PASSWORD_DEFAULT)); // cuándo password_hash()?
+      $user->pass($_POST['pass']);
       $user->mail($_POST['mail']);
       $user->store();
       header('Location: /user/');
