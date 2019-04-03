@@ -1,6 +1,6 @@
 <?php
 
-interface CRUDController {
+interface iController {
 
 /**
  * Devolvera un array con todos los objeto de esa clase
