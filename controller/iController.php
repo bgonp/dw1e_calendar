@@ -2,21 +2,24 @@
 
 interface iController {
 
-/**
- * Devolvera un array con todos los objeto de esa clase
- */
-public static function listPage();
-/**
- * Eliminara el objeto de esa clase
- */
-public static function deletePage();
-/**
- * Creara una instancia de esta clase para ser procesada
- */
-public static function createPage();
-/**
- * modificara el objeto de esa clase 
- */
-public static function editPage();
+	/**
+	 * Gestiona la lógica de la página de listado de elementos
+	 */
+	public static function listPage();
+
+	/**
+	 * Gestiona la lógica de la página de borrado de elemento
+	 */
+	public static function deletePage();
+
+	/**
+	 * Gestiona la lógica de la página de crear elemento
+	 */
+	public static function createPage();
+
+	/**
+	 * Gestiona la lógica de la página de editar elemento
+	 */
+	public static function editPage();
     
 }
