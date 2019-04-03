@@ -10,12 +10,14 @@ class UserController implements iController {
   public static function editPage() {
     // no tengo claro si aquí hay que editar directamente las propiedades o dentro de la página
     if ($_POST['id']) {
-      $user = new User($_POST['id']);
+      $user = new User();
+      $user->id($_POST['id']);
       $user->pass($_POST['pass']);
       $user->mail($_POST['mail']);
       View::userEditPage($user);
     } else if ($_GET['id']) {
-      $user = new User($_GET['id']);
+      $user = new User();
+      $user->id($_GET['id']);
       $user->pass($_GET['pass']);
       $user->mail($_GET['mail']);
       View::userEditPage($user);
