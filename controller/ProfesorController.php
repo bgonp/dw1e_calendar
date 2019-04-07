@@ -15,27 +15,28 @@ class ProfesorController implements iController {
     y para terminar muestra la lista de todos los profesores guardados.
     */
     public static function createPage() {
-        $params=null;
-        View::profesorCreatePage($params);
+        if (!$_POST){
+            View::profesorCreatePage(null);
+        }
+        else{
+            $profesor = new Profesor();
 
-        $profesor = new Profesor();
+            $profesor->nombre($_POST['nombre']);
+            $profesor->apellidos($_POST['apellidos']);
+            $profesor->email($_POST['email']);
 
-        $profesor->nombre = $_POST['nombre'];
-        $profesor->apellidos = $_POST['apellidos'];
-        $profesor->email = $_POST['email'];
-        $profesor->num_asignaturas = $_POST['num_asignaturas'];
+            $profesor->store();
 
-        $profesor->store();
-
-        self::listPage();
+            header("location: /profesor");
+        }
     }
 
     public static function deletePage() {
-        if($_POST['id']){
-            $profesor = new Profesor($_POST['id']);
+        if($_GET['id']){
+            $profesor = new Profesor($_GET['id']);
             $profesor->remove();
-            self::listPage();
         }
+        header("location: /profesor");
     }
 
     /*
@@ -48,22 +49,22 @@ class ProfesorController implements iController {
     todos los profesores.
     */
     public static function editPage() {
-        if (!$_POST['id']){
-            View::profesorEditPage(null);
-            self::editPage();
-        }
-        else {
+        if ($_POST['id']){
             $profesor = new Profesor ($_POST['id']);
 
-            $profesor->nombre = $_POST['nombre'];
-            $profesor->apellidos = $_POST['apellidos'];
-            $profesor->email = $_POST['email'];
-            $profesor->num_asignaturas = $_POST['num_asignaturas'];
+            $profesor->nombre($_POST['nombre']);
+            $profesor->apellidos($_POST['apellidos']);
+            $profesor->email($_POST['email']);
 
             $profesor->update();
-
-            self::listPage();
         }
+        else if ($_GET['id']){
+            $profesor = new Profesor ($_GET['id']);
+        }
+        else{
+            header("location: /profesor");
+        }
+        View::profesorEditPage();
     }
 
     /*
