@@ -1,4 +1,4 @@
-UPDATE caja SET
+UPDATE profesor SET
 nombre = '{{NOMBRE}}',
 apellidos = '{{APELLIDOS}}',
 email = '{{EMAIL}}'
