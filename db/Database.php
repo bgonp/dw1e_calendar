@@ -33,7 +33,7 @@ class Database {
 			'{{ID}}'		=> $id,
 			'{{NOMBRE}}'	=> $params['nombre'],
 			'{{APELLIDOS}}'		=> $params['apellidos'],
-      '{{EMAIL}}'		=> $params['email'],
+			'{{EMAIL}}'		=> $params['email'],
 		];
 		return self::query( $file, $replace );
 	}
@@ -41,9 +41,50 @@ class Database {
 	public static function insertProfesor( $params ){
 		$file = 'insertProfesor.sql';
 		$replace = [
-      '{{NOMBRE}}'	=> $params['nombre'],
+			'{{NOMBRE}}'	=> $params['nombre'],
 			'{{APELLIDOS}}'		=> $params['apellidos'],
-      '{{EMAIL}}'		=> $params['email'],
+			'{{EMAIL}}'		=> $params['email'],
+		];
+		return self::query( $file, $replace );
+	}
+
+	// Métodos para User.php
+	public static function getUserList(){
+		$file = 'selectUserList.sql';
+		return self::query($file);
+	}
+
+	public static function getUser($id){
+		$file = 'selectUser.sql';
+		$replace = [
+			'{{ID}}' => $id,
+		];
+		return self::query( $file, $replace );
+	}
+
+	public static function deleteUser($id){
+		$file = 'deleteUser.sql';
+		$replace = [
+			'{{ID}}' => $id,
+		];
+		return self::query($file, $replace);
+	}
+
+	public static function updateUser( $id, $params ){
+		$file = 'updateUser.sql';
+		$replace = [
+			'{{ID}}'    => $id,
+			'{{PASS}}' => $params['pass'],
+			'{{MAIL}}'    => $params['mail'],
+		];
+		return self::query( $file, $replace );
+	}
+
+	public static function insertUser( $params ){
+		$file = 'insertUser.sql';
+		$replace = [
+			'{{PASS}}' => $params['pass'],
+			'{{MAIL}}'    => $params['mail'],
 		];
 		return self::query( $file, $replace );
 	}
