@@ -1,3 +1,3 @@
 UPDATE usuario
-SET usuario.pass = {{PASS}}, usuario.mail = {{MAIL}}
-WHERE usuario.id = {{ID}};
+SET pass = '{{PASS}}', mail = '{{MAIL}}'
+WHERE id = {{ID}};

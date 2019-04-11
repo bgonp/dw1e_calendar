@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/autoload.php';
+require_once __DIR__.'/../config/autoload.php';
 
 class ProfesorController implements iController {
 
@@ -15,8 +15,8 @@ class ProfesorController implements iController {
     y para terminar muestra la lista de todos los profesores guardados.
     */
     public static function createPage() {
-        if (!$_POST){
-            View::profesorCreatePage(null);
+        if (!isset($_POST['nombre'])){
+            View::profesorCreatePage();
         }
         else{
             $profesor = new Profesor();
@@ -32,7 +32,7 @@ class ProfesorController implements iController {
     }
 
     public static function deletePage() {
-        if($_GET['id']){
+        if(isset($_GET['id'])){
             $profesor = new Profesor($_GET['id']);
             $profesor->remove();
         }
@@ -49,7 +49,7 @@ class ProfesorController implements iController {
     todos los profesores.
     */
     public static function editPage() {
-        if ($_POST['id']){
+        if (isset($_POST['id'])){
             $profesor = new Profesor ($_POST['id']);
 
             $profesor->nombre($_POST['nombre']);
@@ -64,7 +64,7 @@ class ProfesorController implements iController {
         else{
             header("location: /profesor");
         }
-        View::profesorEditPage();
+        View::profesorEditPage( $profesor );
     }
 
     /*

@@ -1,2 +1,2 @@
 INSERT INTO profesor (nombre,apellidos,email)
-VALUES ("{{NOMBRE}}", '{{APELLIDOS}}', '{{EMAIL}}');
+VALUES ('{{NOMBRE}}', '{{APELLIDOS}}', '{{EMAIL}}');

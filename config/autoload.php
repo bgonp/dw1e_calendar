@@ -1,15 +1,16 @@
 <?php
 
-require_once "database.php";
-require_once "../db/Database.php";
-require_once "../model/User.php";
-require_once "../model/Profesor.php";
-require_once "../model/Alumno.php";
-require_once "../model/Asignatura.php";
-require_once "../model/Evento.php";
-require_once "../view/View.php";
-require_once "../controller/UserController.php";
-require_once "../controller/ProfesorController.php";
-require_once "../controller/AlumnoController.php";
-require_once "../controller/AsignaturaController.php";
-require_once "../controller/EventoController.php";
+require_once __DIR__."/database.php";
+require_once __DIR__."/../db/Database.php";
+//require_once __DIR__."/../model/User.php";
+require_once __DIR__."/../model/Profesor.php";
+//require_once __DIR__."/../model/Alumno.php";
+//require_once __DIR__."/../model/Asignatura.php";
+//require_once __DIR__."/../model/Evento.php";
+require_once __DIR__."/../view/View.php";
+require_once __DIR__."/../controller/iController.php";
+//require_once __DIR__."/../controller/UserController.php";
+require_once __DIR__."/../controller/ProfesorController.php";
+//require_once __DIR__."/../controller/AlumnoController.php";
+//require_once __DIR__."/../controller/AsignaturaController.php";
+//require_once __DIR__."/../controller/EventoController.php";

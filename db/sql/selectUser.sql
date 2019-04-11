@@ -1,1 +1,1 @@
-SELECT * FROM usuario WHERE usuario.id = {{ID}};
+SELECT * FROM usuario WHERE id = {{ID}};
