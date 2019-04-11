@@ -1,0 +1,1 @@
+SELECT * FROM usuario WHERE usuario.id = {{ID}};
