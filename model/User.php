@@ -29,9 +29,9 @@ class User
         if ($id){
             $user = Database::getUser($id);
             $user = $user->fetch_assoc();
-            self::id($user['id']);
-            self::pass($user['pass']);
-            self::mail($user['mail']);
+            $this->id($user['id']);
+            $this->pass($user['pass']);
+            $this->mail($user['mail']);
         }
     }
 
@@ -46,16 +46,6 @@ class User
             $users_arr[] = $user;
         }
         return $users_arr;
-    }
-    
-    public function getSingle(){
-        $user_db = Database::getUser($this->id);
-        $user_db = $user_db->fetch_assoc();
-        $user = new User();
-        $user->id($user_db['id']);
-        $user->pass($user_db['pass']);
-        $user->mail($user_db['mail']);
-        return $user;
     }
     
     public function store(){
