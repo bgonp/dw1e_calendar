@@ -5,7 +5,7 @@ require_once '../config/autoload.php';
 class AsignaturaController implements iController {
    
     public static function createPage() {
-        if(isset(!$_POST['abreviatura'])){
+        if(!isset($_POST['abreviatura'])){
             View::AsignaturaCreatePage();
         }
         else{
@@ -16,20 +16,24 @@ class AsignaturaController implements iController {
     }
 
     public static function deletePage() {
-        if($_GET['abreviatura']){
-            $asignatura = new asignatura($_GET['abreviatura']);
+        if($_GET['id']){
+            $asignatura = new asignatura($_GET['id']);
             $asignatura->remove();
         }
         header("location : /asignatura");
     }
 
     public static function editPage() {
-        if(isset($_POST['abreviatura'])){
-            $asignatura = new Asignatura($_POST['abreviatura'],$_POST['nombre'],$_POST['url'], $_POST['profesor']);
+        if(isset($_POST['id'])){
+            $asignatura = new Asignatura($_POST['id']);
+            $asignatura->abreviatura($_POST['abreviatura']);
+            $asignatura->nombre($_POST['nombre']);
+            $asignatura->url($_POST['url']);
+            $asignatura->profesor($_POST['profesor']);
             $asignatura->update();
         }
-        else if($_GET['abreviatura'])){
-            $asignatura = new asignatura($_GET['abreviatura']);
+        else if($_GET['id'])){
+            $asignatura = new asignatura($_GET['id']);
         }
         else{
             header("location :/asignatura");
