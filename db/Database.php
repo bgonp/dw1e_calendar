@@ -11,8 +11,21 @@ class Database {
 		return self::query( $file );
 	}
 
+	public static function getAlumnoList(){
+		$file = 'selectAlumnoList.sql';
+		return self::query( $file );
+	}
+
 	public static function getProfesor( $id ){
 		$file = 'selectProfesor.sql';
+		$replace = [
+			'{{ID}}' => $id,
+		];
+		return self::query( $file, $replace );
+	}
+
+	public static function getAlumno( $id ){
+		$file = 'selectAlumno.sql';
 		$replace = [
 			'{{ID}}' => $id,
 		];
@@ -24,7 +37,15 @@ class Database {
 		$replace = [
 			'{{ID}}' => $id,
 		];
-		return self::query($file, $replace);
+		return self::query( $file, $replace );
+	}
+
+	public static function deleteAlumno ( $id ){
+		$file = 'deleteAlumno.sql';
+		$replace = [
+			'{{ID}}' => $id,
+		];
+		return self::query( $file, $replace );
 	}
 
 	public static function updateProfesor( $id, $params ){
@@ -34,6 +55,18 @@ class Database {
 			'{{NOMBRE}}'	=> $params['nombre'],
 			'{{APELLIDOS}}'		=> $params['apellidos'],
 			'{{EMAIL}}'		=> $params['email'],
+		];
+		return self::query( $file, $replace );
+	}
+
+	public static function updateAlumno( $id, $params ){
+		$file = 'updateAlumno.sql';
+		$replace = [
+			'{{ID}}'		=> $id,
+			'{{NOMBRE}}'	=> $params['nombre'],
+			'{{APELLIDOS}}'		=> $params['apellidos'],
+			'{{EMAIL}}'		=> $params['email'],
+			'{{USER_ID}}' => $params['user_id'],
 		];
 		return self::query( $file, $replace );
 	}
@@ -85,6 +118,17 @@ class Database {
 		$replace = [
 			'{{PASS}}' => $params['pass'],
 			'{{MAIL}}'    => $params['mail'],
+		];
+		return self::query( $file, $replace );
+	}
+
+	public static function insertAlumno( $params ){
+		$file = 'insertAlumno.sql';
+		$replace = [
+      '{{NOMBRE}}'	=> $params['nombre'],
+			'{{APELLIDOS}}'		=> $params['apellidos'],
+      '{{EMAIL}}'		=> $params['email'],
+			'{{USER_ID}}' => $params['user_id'],
 		];
 		return self::query( $file, $replace );
 	}
