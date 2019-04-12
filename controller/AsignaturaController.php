@@ -32,7 +32,7 @@ class AsignaturaController implements iController {
             $asignatura->profesor($_POST['profesor']);
             $asignatura->update();
         }
-        else if($_GET['id'])){
+        else if($_GET['id']){
             $asignatura = new asignatura($_GET['id']);
         }
         else{

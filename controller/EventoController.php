@@ -9,7 +9,7 @@ class EventoController implements iController {
         if(!isset($_POST['fecha'])){
             View::eventoCreatePage();
         }else{
-            $evento = new Evento($_POST['fecha']),$_POST['tipo']),$_POST['asignatura']),$_POST['observaciones']));
+            $evento = new Evento($_POST['fecha'],$_POST['tipo'],$_POST['asignatura'],$_POST['observaciones']);
             $evento->store();
             header("location /evento");
         }
@@ -34,8 +34,8 @@ class EventoController implements iController {
 
             $evento->update();
         }
-        else if($_GET['id'])){
-            $evento = new Evento($_POST['id']));
+        else if($_GET['id']){
+            $evento = new Evento($_POST['id']);
         }
         else{
             header("location /evento");

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../config/autoload.php';
+
 class UserController implements iController {
 
   public static function listPage() {
