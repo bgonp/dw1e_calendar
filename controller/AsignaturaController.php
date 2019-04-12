@@ -5,7 +5,7 @@ require_once '../config/autoload.php';
 class AsignaturaController implements iController {
    
     public static function createPage() {
-        if(isset($_POST['abreviatura'])){
+        if(isset(!$_POST['abreviatura'])){
             View::AsignaturaCreatePage();
         }
         else{
@@ -34,7 +34,7 @@ class AsignaturaController implements iController {
         else{
             header("location :/asignatura");
         }
-        View::asignaturaEditPage();
+        View::asignaturaEditPage($asignatura);
     }
 
     public static function listPage() {

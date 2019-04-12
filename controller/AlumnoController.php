@@ -17,10 +17,6 @@ class AlumnoController implements iController {
         
     }
 
-    public static function getSingle() {
-        
-    }
-
     public static function listPage() {
         
     }
