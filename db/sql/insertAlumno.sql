@@ -1,5 +1,7 @@
-INSERT INTO alumno (nombre, apellidos, email)
+INSERT INTO alumno (nombre, apellidos, email, user_id)
 VALUES (
   '{{NOMBRE}}',
   '{{APELLIDOS}}',
-  '{{EMAIL}}');
+  '{{EMAIL}}',
+  {{USER_ID}}
+);
