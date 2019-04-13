@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/autoload.php';
+require_once __DIR__.'/../config/autoload.php';
 
 class EventoController implements iController {
 
