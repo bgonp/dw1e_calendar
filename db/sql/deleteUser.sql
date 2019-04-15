@@ -1,1 +1,1 @@
-DELETE * FROM usuario WHERE id = {{ID}};
+DELETE FROM usuario WHERE id = {{ID}};

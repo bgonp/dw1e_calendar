@@ -1,2 +1,2 @@
 INSERT INTO usuario (pass, mail)
-VALUES ('{{PASS}}', '{{ID}}');
+VALUES ('{{PASS}}', '{{MAIL}}');
