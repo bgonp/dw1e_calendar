@@ -10,28 +10,23 @@ class UserController implements iController {
   }
 
   public static function editPage() {
-    if ($_POST['id']) {
-      $user = new User();
-      $user->id($_POST['id']);
-      $user->pass($_POST['pass']);
+    if (isset($_POST['id'])) {
+      $user = new User($_POST['id']);
+      $user->pass(password_hash($_POST['pass'], PASSWORD_DEFAULT));
       $user->mail($_POST['mail']);
-      View::userEditPage($user);
-    } else if ($_GET['id']) {
-      $user = new User();
-      $user->id($_GET['id']);
-      $user->pass($_GET['pass']);
-      $user->mail($_GET['mail']);
-      View::userEditPage($user);
+      $user->update();
+    } else if (isset($_GET['id'])) {
+      $user = new User($_GET['id']);
     } else {
       header('Location: /user/');
     }
+    View::userEditPage($user);
   }
 
   public static function createPage() {
-    if ($_POST) {
+    if (isset($_POST['pass'])) {
       $user = new User();
-      $user->id($_POST['id']);
-      $user->pass($_POST['pass']);
+      $user->pass(password_hash($_POST['pass'], PASSWORD_DEFAULT));
       $user->mail($_POST['mail']);
       $user->store();
       header('Location: /user/');
@@ -41,7 +36,7 @@ class UserController implements iController {
   }
 
   public static function deletePage() {
-    if ($_GET['id']) {
+    if (isset($_GET['id'])) {
       $user = new User($_GET['id']);
       $user->remove();
     }
