@@ -92,6 +92,4 @@ class Alumno {
     return $alumno_arr;
   }
 
-
-
 }
