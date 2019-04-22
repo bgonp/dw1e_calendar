@@ -1,0 +1,10 @@
+<form action="" method="post">
+  <input type="hidden" name="id" value="{{ID}}">
+	<label>Tipo<input type="text" name="tipo" value="{{TIPO}}"></label>
+	<input type="radio" name="tipo" value="Examen" checked>Examen<br>
+	<input type="radio" name="tipo" value="Entrega">Entrega<br>
+	<input type="radio" name="tipo" value="Otro">Otro<br>
+  <label>Comentario<input type="text" name="comentario" value="{{COMENTARIO}}"></label>
+	<textarea rows="4" cols="50" name="comentario" form="">{{COMENTARIO}}</textarea>
+	<input type="submit" value="Crear">
+</form>

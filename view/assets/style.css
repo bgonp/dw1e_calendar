@@ -1,0 +1,54 @@
+
+body {
+  background-color: #f1f2f6;
+  font-family: 'Comic Sans MS';
+}
+
+ /* HEADER */
+header {
+  background-color: #ffa502;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: #000000;
+  font-weight: bold;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+ }
+
+ .header_text {
+  margin-left: 15px;
+}
+
+ .icon {
+  min-width: 100%;
+  max-width: 100%;
+  height: 50px;
+  margin-left: 5px;
+}
+
+/* FIN HEADER */
+
+#contenido {
+  color: #2f3640;
+  margin-top: 50px;
+  display: flex;
+  float: left;
+  width: 100%;
+}
+
+#footer {
+  background-color: #5352ed;
+  color: #000000;
+  clear: both;
+  position: fixed;
+  font-weight: bold;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
