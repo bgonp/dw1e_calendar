@@ -82,7 +82,7 @@ class View {
 			'{{USER}}' => $user->id(), // revisar
 			'{{MAIL}}' => $user->mail(),
 		];
-		echo self::frame("Editar profesor", strtr( $html, $replace ));
+		echo self::frame("Editar usuario", strtr($html, $replace));
 	}
 
 }
