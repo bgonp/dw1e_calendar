@@ -4,6 +4,7 @@ require_once __DIR__ . "/../config/autoload.php";
 
 class View {
 
+	//Vista profesores
 	public static function profesorCreatePage(){
 		$html = file_get_contents(__DIR__."/templates/profesorCreatePage.html");
 		echo self::frame( "Crear profesor", $html);
@@ -20,7 +21,7 @@ class View {
 		echo self::frame( 'Lista de profesores', strtr( $html, $replace ) );
 	}
 
-	private static function profesorListElement( $profesor ){
+	public static function profesorListElement( $profesor ){
 		$html = file_get_contents(__DIR__."/templates/profesorListElement.html");
 		$replace = [
 			'{{ID}}'			=> $profesor->id(),
@@ -42,15 +43,7 @@ class View {
 		echo self::frame("Editar profesor", strtr( $html, $replace ));
 	}
 
-	private static function frame( $titulo, $contenido ){
-		$html = file_get_contents(__DIR__."/templates/frame.html");
-		$replace = [
-			'{{TITULO}}' => $titulo,
-			'{{CONTENIDO}}' => $contenido,
-		];
-		return strtr( $html, $replace );
-	}
-
+	//Vista Usuarios
 	public static function userCreatePage() {
 		$html = file_get_contents(__DIR__ . "/templates/userCreatePage.html");
 		echo self::frame("Crear usuario", $html);
@@ -65,7 +58,7 @@ class View {
 		echo self::frame("Lista de usuarios", strtr($html, [ '{{USERS}}' => $replace ]));
 	}
 
-	private static function userListElement($user) {
+	public static function userListElement($user) {
 		$html = file_get_contents(__DIR__ . "/templates/userListElement.html");
 		$replace = [
 			'{{ID}}' => $user->id(),
@@ -85,7 +78,9 @@ class View {
 		echo self::frame("Editar usuario", strtr($html, $replace));
 	}
 
-		public static function eventoCreatePage(){
+
+	//Vista Eventos
+	public static function eventoCreatePage(){
 		$html = file_get_contents(__DIR__."/templates/eventoCreatePage.html");
 		echo self::frame( "Crear Evento", $html);
 	}
@@ -101,7 +96,7 @@ class View {
 		echo self::frame( 'Lista de eventos', strtr( $html, $replace ) );
 	}
 
-	private static function eventoListElement( $evento ){
+	public static function eventoListElement( $evento ){
 		$html = file_get_contents(__DIR__."/templates/eventoListElement.html");
 		$replace = [
 			'{{TIPO}}'			=> $evento->tipo(),
@@ -123,6 +118,51 @@ class View {
 		echo self::frame("Editar evento", strtr( $html, $replace ));
 	}
 
+	//Vista Alumnos
+	public static function alumnoCreatePage(){
+		$html = file_get_contents(__DIR__."/templates/alumnoCreatePage.html");
+		echo self::frame( "Crear Alumno", $html);
+	}
 
+	public static function alumnoListPage( $alumnos ){
+		$html = file_get_contents(__DIR__."/templates/alumnoList.html");
+		$replace = [
+			'{{ALUMNOS}}' => '',
+		];
+		foreach( $alumnos as $alumno ){
+			$replace['{{ALUMNOS}}'] .= self::alumnoListElement( $alumno );
+		}
+		echo self::frame( 'Lista de alumnos', strtr( $html, $replace ) );
+	}
 
+	public static function alumnoListElement( $alumno ){
+		$html = file_get_contents(__DIR__."/templates/alumnoListElement.html");
+		$replace = [
+			'{{NOMBRE}}'			=> $alumno->nombre(),
+			'{{APELLIDOS}}'			=> $alumno->apellidos(),
+			'{{EMAIL}}'				=> $alumno->email()
+		];
+		return strtr( $html, $replace );
+	}
+
+	public static function eventoEditPage( $alumno ){
+		$html = file_get_contents(__DIR__."/templates/alumnoEditPage.html");
+		$replace = [
+			'{{ID}}'			=> $alumno->id(),
+			'{{NOMBRE}}'		=> $alumno->nombre(),
+			'{{APELLIDOS}}'		=> $alumno->apellidos(),
+			'{{EMAIL}}'			=> $alumno->email(),
+		];
+		echo self::frame("Editar evento", strtr( $html, $replace ));
+	}
+
+		//Frame general
+	public static function frame( $titulo, $contenido ){
+		$html = file_get_contents(__DIR__."/templates/frame.html");
+		$replace = [
+			'{{TITULO}}' => $titulo,
+			'{{CONTENIDO}}' => $contenido,
+		];
+		return strtr( $html, $replace );
+	}
 }
