@@ -140,18 +140,20 @@ class View {
 		$replace = [
 			'{{NOMBRE}}'			=> $alumno->nombre(),
 			'{{APELLIDOS}}'			=> $alumno->apellidos(),
-			'{{EMAIL}}'				=> $alumno->email()
+			'{{EMAIL}}'				=> $alumno->email(),
+			'{{ID}}'				=> $alumno->id()
 		];
 		return strtr( $html, $replace );
 	}
 
-	public static function eventoEditPage( $alumno ){
+	public static function alumnoEditPage( $alumno ){
 		$html = file_get_contents(__DIR__."/templates/alumnoEditPage.html");
 		$replace = [
 			'{{ID}}'			=> $alumno->id(),
 			'{{NOMBRE}}'		=> $alumno->nombre(),
 			'{{APELLIDOS}}'		=> $alumno->apellidos(),
 			'{{EMAIL}}'			=> $alumno->email(),
+			'{{ID}}'			=> $alumno->id()
 		];
 		echo self::frame("Editar evento", strtr( $html, $replace ));
 	}

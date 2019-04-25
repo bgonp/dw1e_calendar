@@ -77,10 +77,10 @@
     return Database::deleteAsignatura( $this->id );
   }
 
-  public static function get(){
-    $asignaturas_db = Database::getAsignaturaList();
+  public static function get( $where = [] ){
+    $asignaturas_db = Database::getAsignaturaList( $where );
     $asignatura_arr = [];
-    while( $asignatura_db = $asignaturas_db->fetch_assoc() ){
+    while( $asignaturas_db && $asignatura_db = $asignaturas_db->fetch_assoc() ){
       $asignatura = new Asignatura();
       $asignatura->id( $asignatura_db['id'] );
       $asignatura->nombre( $asignatura_db['nombre'] );

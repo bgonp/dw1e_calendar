@@ -6,15 +6,15 @@ class AlumnoController implements iController {
 
     
     public static function createPage() {
-        if(!assert($_POST['nombre'])){
+        if(!isset($_POST['nombre'])){
             View::alumnoCreatePage();
         }
         else{
-            $alumno = new alumno();
+            $alumno = new Alumno();
 
             $alumno->nombre($_POST['nombre']);
-            $alumno->apellido($_POST['apellido']);
-            $alumno->mail($_POST['mail']);
+            $alumno->apellidos($_POST['apellidos']);
+            $alumno->email($_POST['email']);
             
             $alumno->store();
 
@@ -24,7 +24,7 @@ class AlumnoController implements iController {
 
     public static function deletePage() {
         if(isset($_GET['id'])){
-            $alumno = new alumno($_GET['id']);
+            $alumno = new Alumno($_GET['id']);
             $alumno->remove();
         }
         header("location: /alumno");
@@ -32,15 +32,16 @@ class AlumnoController implements iController {
 
     public static function editPage() {
         if(isset($_POST['id'])){
-            $alumno = new alumno($_POST['id']);
+            $alumno = new Alumno($_POST['id']);
 
             $alumno->nombre($_POST['nombre']);
-            $alumno->apellido($_POST['apellido']);
+            $alumno->apellidos($_POST['apellidos']);
             $alumno->email($_POST['email']);
 
+            $alumno->update();
         }
         elseif ($_GET['id']) {
-            $alumno = new alumno($_GET['id']);
+            $alumno = new Alumno($_GET['id']);
         }
         else{
             header("location: /alumno");

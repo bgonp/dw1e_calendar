@@ -18,8 +18,18 @@ class Database {
 		return self::query( $file );
 	}
 
-	public static function getAsignaturaList(){
+	public static function getAsignaturaList( $where = [] ){
 		$file = 'selectAsignaturaList.sql';
+		if( empty($where) ){
+			$replace = [ '{{WHERE}}' => '' ];
+		} else {
+			$replace = [ '{{WHERE}}' => [] ];
+			foreach ($where as $key => $value) {
+				if( !is_numeric($value) ) $value = '"'.$value.'"';
+				$replace['{{WHERE}}'][] = $key.' = '.$value;
+			}
+			$replace['{{WHERE}}'] = ' WHERE '.implode(' AND ', $replace['{{WHERE}}']);
+		}
 		return self::query( $file );
 	}
 
@@ -76,9 +86,9 @@ class Database {
 	public static function insertAlumno( $params ){
 		$file = 'insertAlumno.sql';
 		$replace = [
-      '{{NOMBRE}}'	=> $params['nombre'],
+			'{{NOMBRE}}'	=> $params['nombre'],
 			'{{APELLIDOS}}'		=> $params['apellidos'],
-      '{{EMAIL}}'		=> $params['email'],
+			'{{EMAIL}}'		=> $params['email'],
 			'{{USER_ID}}' => $params['user_id'],
 		];
 		return self::query( $file, $replace );
@@ -235,8 +245,6 @@ class Database {
 		];
 		return self::query( $file, $replace );
 	}
-
-	//
 
 	private static function query( $file, $replace = [] ){
 		if( !self::$connection )

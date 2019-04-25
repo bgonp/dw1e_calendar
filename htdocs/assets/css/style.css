@@ -18,7 +18,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-
+  opacity: 0.2;
 }
 
 .header_text {
@@ -52,7 +52,7 @@ header {
 
 /* FIN MENU */
 /* CONTAINER GENERAL */
-#container {
+#contenido {
   color: #2f3640;
   margin-top: 50px;
   display: flex;
@@ -62,7 +62,7 @@ header {
 
 /* FIN CONTAINER GENERAL */
 /* CONTAINER IZQ */
-#container .cont1 {
+#contenido .cont1 {
   float: left;
   width: 70%;
 }
@@ -70,7 +70,7 @@ header {
 
 /* FIN CONTAINER IZQ*/
 /* CONTAINER DCHA */
-#container #cont2 {
+#contenido #cont2 {
   float: left;
   width: 30%;
   height: 20px;
