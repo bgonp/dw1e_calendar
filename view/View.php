@@ -85,4 +85,44 @@ class View {
 		echo self::frame("Editar usuario", strtr($html, $replace));
 	}
 
+		public static function eventoCreatePage(){
+		$html = file_get_contents(__DIR__."/templates/eventoCreatePage.html");
+		echo self::frame( "Crear Evento", $html);
+	}
+
+	public static function eventoListPage( $eventos ){
+		$html = file_get_contents(__DIR__."/templates/eventoList.html");
+		$replace = [
+			'{{EVENTOS}}' => '',
+		];
+		foreach( $eventos as $evento ){
+			$replace['{{EVENTOS}}'] .= self::eventoListElement( $evento );
+		}
+		echo self::frame( 'Lista de eventos', strtr( $html, $replace ) );
+	}
+
+	private static function eventoListElement( $evento ){
+		$html = file_get_contents(__DIR__."/templates/eventoListElement.html");
+		$replace = [
+			'{{TIPO}}'			=> $evento->tipo(),
+			'{{FECHA}}'			=> $evento->fecha(),
+			'{{COMENTARIO}}'	=> $evento->observaciones()
+		];
+		return strtr( $html, $replace );
+	}
+
+
+	public static function eventoEditPage( $evento ){
+		$html = file_get_contents(__DIR__."/templates/eventoEditPage.html");
+		$replace = [
+			'{{ID}}'			=> $evento->id(),
+			'{{TIPO}}'			=> $evento->tipo(),
+			'{{FECHA}}'			=> $evento->fecha(),
+			'{{COMENTARIO}}'	=> $evento->observaciones()
+		];
+		echo self::frame("Editar evento", strtr( $html, $replace ));
+	}
+
+
+
 }
