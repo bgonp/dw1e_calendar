@@ -98,3 +98,17 @@ header {
   width: 100%;
   text-align: center;
 }
+
+
+img.indio-img {
+  position: fixed;
+  left: 0;
+  bottom: 30px;
+  height: 120px;
+  margin-left: -150px;
+  transition: margin-left 4s ease;
+}
+
+img.indio-img.show {
+  margin-left: 0;
+}
